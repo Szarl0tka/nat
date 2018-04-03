@@ -1,11 +1,23 @@
-@import "compass/css3"
+@import "compass/css3";
+@import "compass/css3/animation";
 
 @import 'core/mixins';
 @import 'core/variables';
 @import 'core/reset';
+@import 'fonts';
+@import 'core/keyframes';
 
 body {
-	font-size: 12px;
+	
+	font-family: $font-primary;
+	font-size: 1.4rem;
+	font-weight: 400;
+	color: $color-dark;
 
 	@import 'partials/header';
+	@import 'partials/nav';
+	@import 'partials/news';
+	@import 'partials/about';
+	@import 'partials/mission';
+	@import 'partials/live';
 }

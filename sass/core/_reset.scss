@@ -1,17 +1,28 @@
 
-* { box-sizing: border-box; }
-
-html,
-body,
-ul,
-ol,
-p {
-  margin:  0;
-  padding: 0;
+html, body {
+	margin:  0;
+  	padding: 0;
 }
 
-a { text-decoration: none; }
+html {
+	font-size: 10px;
+}
 
-canvas {
-	max-width: 100%;
+body {
+	* { 
+		box-sizing: border-box;
+		margin:  0;
+  		padding: 0;
+  		font-weight: normal;
+	}
+	a { 
+		text-decoration: none; 
+	}	
+	ul {
+		list-style: none;
+	}
+	img {
+		max-width: 100%;
+		height: auto;
+	}
 }
