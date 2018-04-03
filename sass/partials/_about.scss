@@ -1,0 +1,144 @@
+.about {
+	@include flex-aligns;
+	overflow: hidden;
+
+	&-item {
+		width: calc(100% / 3);
+		padding: 4.5rem;
+		color: $color-light;
+		height: $window-height;
+		@include opacity(1);
+		cursor: pointer;
+		overflow: hidden;
+		transform: scale(1);
+		@include transition(all 0.7s ease-in-out);
+		@include flex-aligns(center, flex-start);
+		flex-direction: column;
+
+		&:before { z-index: -1;
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: block;
+			width: 100%;
+			height: 100%;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+		}
+		
+		.wrap {
+			width: 100%;
+			height: 100%;
+			padding: 4.5rem;
+
+			&:hover {
+				// animation-duration: .5s;
+	  	// 		animation-name: zoomAnim;
+
+			}
+		}
+		&.in {
+			width: 40%;	
+			.wrap {
+				@include animation(zoomAnim 5s);	
+			}
+			.about-menu { 
+				@include opacity(1); 
+				width: 100%;
+			}
+		}
+		&.out {
+			width: 30%;
+			@include opacity(0.5);
+			&:hover {
+				@include transition(all 0.7s ease-in-out);
+				@include opacity(1);
+			}
+		}		
+
+		&.who {
+			&:before {
+				background-image: url(../img/background-about-who.jpg);
+			}			
+			.title {
+				@include lato(400, 5.1rem);
+				.bold {
+					@include lato(600, 7.7rem);
+				}
+			}
+		}
+		&.what {
+			&:before {
+				background-image: url(../img/background-about-what.jpg);
+			}			
+			.title {
+				@include lato(400, 6rem);
+				.bold {
+					@include lato(600, 6.8rem);
+				}
+			}
+		}
+		&.how {
+			&:before {
+				background-image: url(../img/background-about-how.jpg);
+			}			
+			.title {
+				@include lato(400, 5rem);
+				.bold {
+					@include lato(600, 8.6rem);
+				}
+			}
+		}
+		.title {
+			@include lato(400, 4rem);
+			white-space: pre-line;
+			@include title-line;
+			padding: 15rem 0 13rem 4rem;
+			line-height: 1;
+		}
+	}
+	&-menu {
+		margin-top: -10rem;
+		width: 0;
+		position: relative;
+		@include transition(all 0.7s ease-in-out);
+		@include opacity(0);
+
+		.list {
+			display: flex;
+			flex-direction: column;
+			padding-left: 4.5rem;
+			max-width: 50%;
+
+			&-item {
+				@include flex-aligns(flex-start, center);
+				text-transform: uppercase;
+				padding: 1rem 0;
+				border-bottom: .1rem solid $color-light;
+
+				&:hover {
+					.text {  @include opacity(1); }
+				}
+				.icon-more {
+					font-size: 2.8rem;
+					padding-right: 1rem;
+				}
+				.label {
+					@include font-primary(600, 1.6rem)
+				}
+				.text {
+					position: absolute;
+					width: 45%;
+				    top: 0;
+				    right: 0;
+				    padding: 1rem;
+				    background: rgba(0,0,0,0.5);
+				    @include opacity(0);
+				    @include transition(all 0.7s ease-in-out);
+				}
+			}
+		}
+	}
+}

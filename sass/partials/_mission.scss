@@ -1,0 +1,61 @@
+.mission {
+	min-height: $window-height;
+	background: url(../img/background-mission.jpg) no-repeat center; 
+	color: $color-light;
+	padding: 3rem 0;
+
+	&-wrap {
+		max-width: $container-width;
+		margin: 0 auto;
+	}
+	&-content {
+		@include title-line(9rem);
+		padding: 7rem 0 7rem 2.5rem;
+		.text {
+			@include font-primary(400, 2.8rem);
+			&.bold {
+				font-weight: 600;
+			}
+		}
+	}
+	&-pictos {
+		@include flex-aligns(space-between, center);
+		padding-left: 25%; 
+		position: relative;
+		&:before {
+			content: "";
+			position: absolute;
+			left: 3rem;
+			right: 5rem;
+			display: block;
+			height: .1rem;
+			background: $color-light;
+		}
+		&-item {
+			@include flex-aligns(space-between, center);
+			flex-direction: column;
+			z-index: 1;
+		}
+		.picto {
+			display: block;
+			width: 10.6rem;
+			height: 10.6rem;
+			@include border-radius(5.3rem);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			&.food {
+				background-image: url(../img/picto-food.png);
+			}
+			&.nutrition {
+				background-image: url(../img/picto-nutrition.png);
+			}
+			&.care {
+				background-image: url(../img/picto-care.png);
+			}
+		}
+		.label {
+			@include font-primary(600, 2.4rem);
+		}
+	}
+}

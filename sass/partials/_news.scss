@@ -1,0 +1,36 @@
+.news {	
+	background: #dac5da;
+	padding: 4rem 0;
+	&-wrap {
+		max-width: $container-width;
+		margin: 0 auto;
+		@include flex-aligns(space-between, flex-start);
+	}
+	&-title {
+		@include font-primary(600, 3.8rem);
+		padding-left: 2rem;
+	}
+	&-item { 
+		.date {  
+			font-weight: 600;
+			color: $color-primary-light;
+		}
+		.text {
+			white-space: pre-line;
+			padding: 2.5rem 0;
+		}
+		.cta {
+			font-weight: 600;
+			color: $color-dark;
+			@include flex-aligns(flex-start, center);
+
+			.icon-right {
+				color: $color-primary-light;
+				font-weight: 600;
+			}
+			.label {
+				font-weight: 600;
+			}
+		}
+	}
+}

@@ -1,0 +1,21 @@
+.live {
+	max-width: $container-width;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+
+	&-item {
+		padding: 0 1rem;
+		margin-bottom: 2rem;
+
+		&.simple {
+			width: 25%;
+		}
+		&.full {
+			width: 50%;
+		}
+		.wrap {
+			height: 100%;
+		}
+	}
+}
