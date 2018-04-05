@@ -1,4 +1,8 @@
 
+
+
+/* ------ RESET ------ */
+
 html, body {
 	margin:  0;
   	padding: 0;
@@ -6,6 +10,12 @@ html, body {
 
 html {
 	font-size: 10px;
+	@media screen and (max-width: 991px) {
+		font-size: 8px;
+	}
+	@media screen and (max-width: 1200px) {
+		font-size: 9px;
+	}
 }
 
 body {
@@ -15,12 +25,13 @@ body {
   		padding: 0;
   		font-weight: normal;
 	}
-	a { 
-		text-decoration: none; 
-	}	
 	ul {
 		list-style: none;
 	}
+	a { 
+		text-decoration: none; 
+		color: $color-dark;
+	}		
 	img {
 		max-width: 100%;
 		height: auto;

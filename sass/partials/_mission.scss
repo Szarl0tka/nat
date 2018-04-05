@@ -2,26 +2,41 @@
 	min-height: $window-height;
 	background: url(../img/background-mission.jpg) no-repeat center; 
 	color: $color-light;
-	padding: 3rem 0;
+	padding: 3rem;
+	@media screen and (max-width: 768px) and (orientation: portrait) {
+		background: $color-primary-dark;
+	}
 
 	&-wrap {
 		max-width: $container-width;
 		margin: 0 auto;
 	}
+	/* ------ TITLE BLOCK ------ */
 	&-content {
 		@include title-line(9rem);
 		padding: 7rem 0 7rem 2.5rem;
+
 		.text {
 			@include font-primary(400, 2.8rem);
+
 			&.bold {
 				font-weight: 600;
 			}
 		}
 	}
+	/* ------ PICTOS------ */
 	&-pictos {
-		@include flex-aligns(space-between, center);
-		padding-left: 25%; 
+		@include flex-aligns(space-between, center);		
 		position: relative;
+
+		@media screen and (min-width: 768px) {
+			padding-left: 25%; 
+			@include flex-aligns(space-between, center);
+		}
+		@media screen and (max-width: 768px) {
+			@include flex-aligns(space-around, center);
+		}
+
 		&:before {
 			content: "";
 			position: absolute;
@@ -31,6 +46,7 @@
 			height: .1rem;
 			background: $color-light;
 		}
+		/* ------ PICTO ITEM ------ */
 		&-item {
 			@include flex-aligns(space-between, center);
 			flex-direction: column;
@@ -56,6 +72,13 @@
 		}
 		.label {
 			@include font-primary(600, 2.4rem);
+
+			@media screen and (max-width: 768px) {
+				display: none;
+			}
+			@media screen and (max-width: 991px) {
+				font-size: 2rem;
+			}
 		}
 	}
 }

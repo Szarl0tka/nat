@@ -1,43 +1,49 @@
 
 
-
-@mixin lato($font-weight: 400, $font-size: 1.4rem) {
-	font-family: 'Lato', sans-serif;
-	font-weight: $font-weight;
-	font-size: $font-size;
-	text-transform: uppercase; 
-}
-@mixin font-primary($font-weight: 400, $font-size: 1.4rem) {
-	font-weight: $font-weight;
-	font-size: $font-size;
-	text-transform: uppercase; 
-}
-
-@mixin title-line($gradient-width: 7rem) {
-	position: relative;
-  	overflow: hidden;
-  	&:before, &:after {
-  		content: "";
-  		display: block;
-  		position: absolute;
-		top: 0;
-		bottom: 0;
-  	}
-  	&:before {  				
-		background: linear-gradient(to bottom, rgba($color-light,0) 0%,rgba($color-light,1) 25%,rgba($color-light,1) 75%,rgba($color-light,0) 100%);		
-		width: .2rem;
-		left: 0;
+/* ------ GRID ------ */
+	@mixin flex-aligns($justify-content: center, $align-items: center) {
+		display: flex;
+		justify-content: $justify-content;
+		align-items: $align-items;
 	}
-	&:after {
-		width: $gradient-width * 2;
-		background: radial-gradient(ellipse at center, rgba($color-light,0.7) 0%,rgba($color-light,0.4) 10%,rgba($color-light,0) 70%,rgba($color-light,0) 90%,rgba($color-light,0) 100%);
-		left: -($gradient-width);
-	}
-}
 
-@mixin flex-aligns($justify-content: center, $align-items: center) {
-	display: flex;
-	justify-content: $justify-content;
-	align-items: $align-items;
-}
+
+
+/* ------ FONTS ------ */
+	@mixin lato($font-weight: 400, $font-size: 1.4rem) {
+		font-family: 'Lato', sans-serif;
+		font-weight: $font-weight;
+		font-size: $font-size;
+		text-transform: uppercase; 
+	}
+	@mixin font-primary($font-weight: 400, $font-size: 1.4rem) {
+		font-weight: $font-weight;
+		font-size: $font-size;
+		text-transform: uppercase; 
+	}
+
+
+/* ------ STYLES ------ */
+	@mixin title-line($gradient-width: 7rem) {
+		position: relative;
+	  	overflow: hidden;
+	  	&:before, &:after {
+	  		content: "";
+	  		display: block;
+	  		position: absolute;
+			top: 0;
+			bottom: 0;
+	  	}
+	  	&:before {  				
+			background: linear-gradient(to bottom, rgba($color-light,0) 0%,rgba($color-light,1) 25%,rgba($color-light,1) 75%,rgba($color-light,0) 100%);		
+			width: .2rem;
+			left: 0;
+		}
+		&:after {
+			width: $gradient-width * 2;
+			background: radial-gradient(ellipse at center, rgba($color-light,0.7) 0%,rgba($color-light,0.4) 10%,rgba($color-light,0) 70%,rgba($color-light,0) 90%,rgba($color-light,0) 100%);
+			left: -($gradient-width);
+		}
+	}
+
 

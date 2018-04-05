@@ -1,13 +1,20 @@
 
-$container-width: 1024px;
-$menu-height: 5rem;
-$window-height: calc(100vh - 5rem);
-// Colors
-$color-light: #fff;
-$color-dark: #454545;
-$color-primary-light: #91be3b;
-$color-primary-dark: #016742;
 
-//Fonts
-$font-primary: 'Source Sans Pro', sans-serif;
-$font-secondary: 'Lato', sans-serif;
+
+
+/* ------ GRID ------ */
+	$container-width: 1024px;
+	$menu-height: 5rem;
+	$window-height: calc(100vh - 5rem);
+
+
+/* ------ FONTS ------ */
+	$font-primary: 'Source Sans Pro', sans-serif;
+	$font-secondary: 'Lato', sans-serif;
+
+
+/* ------ COLORS ------ */
+	$color-light: #fff;
+	$color-dark: #454545;
+	$color-primary-light: #91be3b;
+	$color-primary-dark: #016742;

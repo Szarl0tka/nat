@@ -1,5 +1,31 @@
-@keyframes zoomAnim {
-  0% { transform: scale(1); }
-  68%, 72% { transform: scale(1.1); }
-  100% { transform: scale(1); }
+
+
+
+/* ------ KEYFRAMES ------ */
+
+@keyframes zoom {
+  0% { @include scale(1); }
+  68%, 72% { @include scale(1.1); }
+  100% { @include scale(1); }
+}
+
+@keyframes bounce {
+  0%,
+  100%,
+  20%,
+  50%,
+  80% {
+    @include translateY(0);
+  }
+  40% {
+    @include translateY(-.8rem);
+  }
+  60% {
+    @include translateY(.5rem);
+  }
+}
+
+@keyframes burger {
+  0% { width: 0; }
+  100% { width: 100%;  }
 }

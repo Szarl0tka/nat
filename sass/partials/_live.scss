@@ -4,18 +4,209 @@
 	display: flex;
 	flex-wrap: wrap;
 
+	@media screen and (max-width: 991px) {
+		max-width: 600px;
+		margin: 0 auto;
+	}
+	@media screen and (max-width: 768px) {
+		max-width: 400px;	
+	}
+
+	&-title {
+		@include font-primary(600, 3.8rem);
+		width: 100%;
+		margin: 3rem 0;
+		padding-left: 1rem;
+	}
 	&-item {
 		padding: 0 1rem;
 		margin-bottom: 2rem;
 
+		/* ------ SMALL ITEM ------ */
 		&.simple {
 			width: 25%;
+			@media screen and (max-width: 991px) {
+				width: 50%;
+			}
+			@media screen and (max-width: 768px) {
+				width: 100%;
+			}
 		}
+		/* ------ BUG ITEM ------ */
 		&.full {
 			width: 50%;
+			@media screen and (max-width: 991px) {
+				width: 100%;
+				min-height: 50rem;
+			}
+			@media screen and (max-width: 768px) {
+				min-height: 30rem;
+			}
 		}
 		.wrap {
 			height: 100%;
+		}
+		.new {
+			padding: 1.5rem;
+			@include flex-aligns(center, space-between);
+			flex-direction: column;
+		}
+		/* ------ SOCIAL ITEM ------ */
+		.social { 
+			color: $color-light;
+			padding: 3rem 1.5rem;
+			@include flex-aligns(space-between, center);
+			flex-direction: column;
+
+			/* ------ SOCIAL SPECIFIC ITEM ------ */
+			&.linkedin {
+				background: #72a3c9;
+			}
+			&.facebook {
+				background: $color-primary-light;
+				text-align: center;
+				.type {
+					padding-top: 2rem;
+					margin-top: 4rem;
+				}
+			}
+			&.twitter {
+				background: #6a6a6a;
+				text-align: center;
+				.type {
+					padding-top: 2rem;
+					margin-top: 4rem;
+				}
+			}
+			/* ------ SOCIAL COMPONENTS ITEM ------ */
+			.title {
+				text-transform: uppercase;
+				cursor: pointer;
+			}
+			.type {
+				@media screen and (max-width: 968px) {
+					margin: 1rem 0;
+				}
+			}
+			.date {
+				color: $color-light;
+			}
+			.cta {
+				color: $color-light;
+				&:before {
+					background-color: $color-light;
+				}
+				.icon-right {
+					color: $color-light;
+				}
+				&:hover {
+					color: $color-light;
+				}
+			}
+		}
+		/* ------ VIDEO ITEM ------ */
+		.youtube {
+			background: url(../img/background-live-video.jpg) no-repeat center;
+			background-size: cover;
+			@include flex-aligns;
+			position: relative;
+			cursor: pointer;
+
+			&:hover {
+				&:before, &:after {
+					@include scale(1.2);
+				}
+			}
+			&:before {
+				display: block;
+				content: "";
+				width: 5rem;
+				height: 5rem;
+				@include border-radius(2.5rem);
+				background: $color-light;
+				box-shadow: 0 0 2rem rgba(0,0,0,0.5);
+				
+				@include transition(all .3s ease-in-out);
+				@include scale(1);
+			}
+			&:after {
+				content: "";
+				display : block;
+				position: absolute;
+				height : 0;
+				width : 0;
+				border-top : 1rem solid transparent;
+				border-bottom : 1rem solid transparent;
+				border-left : 1.5rem solid rgba($color-dark, 0.3);
+				z-index: 1;
+				@include transition(all .3s ease-in-out);
+				@include scale(1);
+				left: 50%;
+				margin-left: -.5rem;
+			}			
+		}
+		/* ------ DOWNLOAD ITEM ------ */
+		.download {
+			background: url(../img/background-live-etude.jpg) no-repeat center;
+			background-size: cover;
+			@include flex-aligns(flex-start, center);
+			flex-direction: column;
+			cursor: pointer;
+			position: relative;
+			padding: 3rem;
+
+			.title {
+				text-transform: uppercase;
+				font-size: 3rem;
+				white-space: pre-line;
+				width: 100%;
+			}
+		}
+		/* ------ COMMONS COMPONENTS ITEM ------ */
+		.cta {
+			font-weight: 600;
+			color: $color-dark;
+			width: 100%;
+			@include flex-aligns(flex-start, center);
+			@include transition(all 0.4s ease-in-out);
+			&:before {
+				content:"";
+				display: block;
+				width: 0;
+				height: .1rem;
+				background-color: $color-primary-light;
+				@include opacity(0);
+				@include transition(all .4s ease-in-out);
+			}
+			.icon-right {
+				color: $color-primary-light;
+				font-weight: 600;				
+			}
+			.label {
+				font-weight: 600;
+			}
+			&:hover {
+				color: $color-primary-light;
+				&:before {
+					@include opacity(1);
+					width: 1rem;
+				}
+			}
+		}
+		.type {
+			border-top: .1rem solid $color-light;
+			padding-top: .5rem;
+			margin-top: .5rem;
+		}
+		.date {  
+			font-weight: 600;
+			color: $color-primary-light;
+		}
+		.text {						
+			@media screen and (min-width: 768px) {
+				white-space: pre-line;
+				padding: 2.5rem 0;
+			}
 		}
 	}
 }

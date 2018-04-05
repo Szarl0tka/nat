@@ -4,37 +4,102 @@
 	@include flex-aligns(space-between, center);
 	height: $menu-height;
 
-	
+	@media screen and (max-width: 1100px) {
+		padding: 0 1.5rem;
+	}
+
+	/* ------ BURGER MENU ICON CTA ------ */
+	.icon-burger {
+		@include flex-aligns(space-around, center);
+		width: 2.7rem;
+		height: 2.7rem;
+		flex-direction: column;
+		cursor: pointer;
+
+		@media screen and (min-width: 1100px) {
+			display: none;
+		}
+		@media screen and (max-width: 768px) {
+			order: -1;
+		}
+
+		.line, &:before, &:after {			
+			display: block;
+			width: 2.7rem;
+			height: .3rem;
+			background: $color-dark;
+		}
+		&:before, &:after {
+			content: "";
+		}
+		&:hover {
+			.line {
+				@include animation(burger .4s ease-in-out);
+			}
+			&:before {
+				@include animation(burger .8s ease-in-out);
+			}
+			&:after {
+				@include animation(burger 1.2s ease-in-out);
+			}
+		}			
+	}
+	/* ------ HEADER MENU ------ */
 	.menu {
 		display: flex;
+
+		@media screen and (max-width: 1100px) {
+			display: none;
+		}
+
 		&-item {
 			text-transform: uppercase;
-			padding: .5rem .7rem;
+			padding: .5rem .35rem;
+			margin: 0 .35rem;
 			cursor: pointer;
 			position: relative;
 			z-index: 1;
+			color: $color-dark;
+			@include transition(all 1s ease-in-out);
 
 			&:nth-child(3) {
-				border-right: .1rem solid rgba($color-dark, 0.7);
+				&:after {
+					position: absolute;
+					right: -.35rem;
+					top: 0;
+					content:"";
+					display: block;
+					width: .1rem;
+					height: 100%;
+					background: rgba($color-dark, 0.7);
+				}
 			}
 			&:before {
 				content: "";
 				display: block;
 				margin: 0 auto;
 				position: absolute;
-				top: 0;
-				left: 0;
+				top: .4rem;
+				left: 50%;
 				width: 0;
-				bottom: 0;
-				background: yellow;
+				height: 2rem;
+				bottom: .5rem;
+				background: rgba($color-primary-dark, 0);
 				z-index: -1;
-				@include transition(all 0.3s ease-in-out);
+				@include transition(all 0.7s ease-in-out);
 			}
 			&:hover {
-				&:before { width: 100%; }
+				color: $color-light;
+				
+				&:before { 
+					width: 100%; 
+					left: 0; 
+					background: rgba($color-primary-dark, 1);
+				}
 			}
-		}
+		}		
 	}
+	/* ------ HEADER CTAS ASIDE ------ */
 	&-ctas {
 		display: flex;
 		height: 100%;
@@ -47,11 +112,18 @@
 				@include flex-aligns;
 				padding: 0  .8rem;
 				font-size: 1rem;
+				@include transition(all 0.4s ease-in-out);
+
+				&:hover {
+					background: $color-primary-light;
+				}
 			}
 			&.lang {
 				@include flex-aligns;
 				border: .1rem solid #51b1e0;
 				padding: .3rem .5rem .3rem 0;
+				overflow: hidden;
+				cursor: pointer;
 				
 				.flag {
 					@include flex-aligns(space-between, center);
@@ -84,9 +156,8 @@
 					border-top : .7rem solid #51b1e0;
 					border-right : .4rem solid transparent;
 					border-left : .4rem solid transparent;
-
 				}
 			}
 		}
-	}
+	}	
 }

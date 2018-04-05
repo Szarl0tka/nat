@@ -1,35 +1,88 @@
 .news {	
 	background: #dac5da;
 	padding: 4rem 0;
+
+	/* ------ CONTAINER ------ */	
 	&-wrap {
 		max-width: $container-width;
 		margin: 0 auto;
 		@include flex-aligns(space-between, flex-start);
+
+		@media screen and (max-width: 768px) {
+			flex-direction: column;
+		}
+		@media screen and (max-width: 991px) {
+			padding: 0 2rem;
+		}
+		@media screen and (min-width: 769px) and (max-width: 991px) {
+			flex-wrap: wrap;
+		}
 	}
 	&-title {
 		@include font-primary(600, 3.8rem);
-		padding-left: 2rem;
+		
+		@media screen and (min-width: 991px) {
+			padding-left: 2rem;
+		}
+		@media screen and (max-width: 991px) {
+			 width: 100%;
+			 margin-bottom: 3rem;
+		}
 	}
 	&-item { 
+		@media screen and (max-width: 768px) {
+			width: 100%;
+			margin-bottom: 3rem;
+
+			.cta, .text {
+				padding: 1.5rem 0;
+			}
+		}
+		@media screen and (max-width: 991px) {
+			.cta, .text, .date {
+				font-size: 1.9rem;
+			}
+		}
 		.date {  
 			font-weight: 600;
 			color: $color-primary-light;
 		}
-		.text {
-			white-space: pre-line;
-			padding: 2.5rem 0;
+		.text {			
+			
+			@media screen and (min-width: 768px) {
+				white-space: pre-line;
+				padding: 2.5rem 0;
+			}
 		}
 		.cta {
 			font-weight: 600;
 			color: $color-dark;
 			@include flex-aligns(flex-start, center);
-
+			@include transition(all 0.4s ease-in-out);
+			
+			&:before {
+				content:"";
+				display: block;
+				width: 0;
+				height: .1rem;
+				background-color: $color-primary-light;
+				@include opacity(0);
+				@include transition(all .4s ease-in-out);
+			}
 			.icon-right {
 				color: $color-primary-light;
 				font-weight: 600;
+				
 			}
 			.label {
 				font-weight: 600;
+			}
+			&:hover {
+				color: $color-primary-light;
+				&:before {
+					@include opacity(1);
+					width: 1rem;
+				}
 			}
 		}
 	}
